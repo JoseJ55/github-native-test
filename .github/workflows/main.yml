@@ -18,7 +18,16 @@ jobs:
         id: verify-changed-files
         with:
           files: |
-             main.js
+            main.js
+
+      - name: Verify Changed Files
+        uses: tj-actions/changed-files@v29.0.0
+        id: changed-files
+
+      - name: Run File Change.
+        if: contains(steps.changed-files.outputs.modified_files, 'main.js')
+        run: |
+          echo 'main.js was changed'
 
       - name: Run step only when files change.
         run: |
