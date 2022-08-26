@@ -1,7 +1,9 @@
 name: Publish Staging Enviorment
+
 on:
   push:
     branches: [main]
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -10,17 +12,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - uses: actions/setup-node@v1
-        with:
-          node-version: 16.x
 
-      - name: Verify Changed Files
-        uses: tj-actions/verify-changed-files@v11
-        id: verify-changed-files
-        with: 
-          files: |
-            main.js
-
-      - name: Run File Change.
-        if: steps.verify-change-files.outputs.files_changed === 'true'
+      - name: Running test
         run: |
-          echo "Changed File"
+          echo test this
+          ls -a
