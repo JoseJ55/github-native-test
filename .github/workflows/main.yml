@@ -13,7 +13,15 @@ jobs:
 
       - uses: actions/setup-node@v1
 
-      - name: Running test
+      - name: Verify Changed Files
+        uses: tj-actions/verify-changed-files@v11
+        id: verify-changed-files
+        with: 
+          files: |
+            main.js
+
+      - name: Run File Change.
+        if: steps.verify-change-files.outputs.files_changed == 'true'
         run: |
-          echo test this
-          ls -a
+          echo "Changed File: ${{ steps.verify-change-files.outputs.changed_files
+          }}"
