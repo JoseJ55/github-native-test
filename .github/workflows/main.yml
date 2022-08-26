@@ -20,20 +20,22 @@ jobs:
           files: |
             main.js
 
-      - name: Verify Changed Files
+      - name: Changed Files
         uses: tj-actions/changed-files@v29.0.0
         id: changed-files
 
       - name: Run File Change.
+        run: echo contains(steps.changed-files.outputs.modified_files, 'main.js')
         if: contains(steps.changed-files.outputs.modified_files, 'main.js')
         run: |
           echo 'main.js was changed'
 
       - name: Run step only when files change.
+        run: echo steps.verify-changed-files.outputs.files_changed == 'true'
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: |
           echo "Changed files: ${{
           steps.verify-changed-files.outputs.changed_files }}"
-        if: steps.verify-changed-files.outputs.files_changed == 'true'
           
       - name: Test echo
         run: | 
