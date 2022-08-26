@@ -13,15 +13,6 @@ jobs:
 
       - uses: actions/setup-node@v1
 
-      - name: Verify Changed Files
-        uses: tj-actions/changed-files@v29.0.0
-        id: changed-files
-
-      - name: Run File Change.
-        if: contains(steps.changed-files.outputs.modified_files, 'main.js')
-        run: |
-          echo 'main.js was changed'
-
       - name: Verify Changed files
         uses: tj-actions/verify-changed-files@v11
         id: verify-changed-files

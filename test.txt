@@ -26,3 +26,12 @@ jobs:
         if: steps.verify-change-files.outputs.files_changed === 'true'
         run: |
           echo "Changed File"
+
+      - name: Verify Changed Files
+        uses: tj-actions/changed-files@v29.0.0
+        id: changed-files
+
+      - name: Run File Change.
+        if: contains(steps.changed-files.outputs.modified_files, 'main.js')
+        run: |
+          echo 'main.js was changed'
