@@ -1,3 +1,3 @@
-const inital = "This is the second sentience.";
+const inital = "This is the third sentience.";
 
 console.log(inital);
