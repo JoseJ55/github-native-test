@@ -26,8 +26,7 @@ jobs:
 
       - name: Run File Change.
         run: |
-          echo contains(steps.changed-files.outputs.modified_files, 'main.js')
-          echo 'main.js was changed'
+          echo ${{contains(steps.changed-files.outputs.modified_files, 'main.js')}}
 
       - name: Run step only when files change.
         if: steps.verify-changed-files.outputs.files_changed == 'true'
