@@ -9,19 +9,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v1
 
       - name: Verify Changed Files
-        uses: tj-actions/verify-changed-files@v11
-        id: verify-changed-files
-        with: 
-          files: |
-            main.js
+        uses: tj-actions/changed-files@v29.0.0
+        id: changed-files
 
       - name: Run File Change.
-        if: steps.verify-change-files.outputs.files_changed == 'true'
+        if: contains(steps.changed-files.outputs.modified_files, "main.js")
         run: |
-          echo "Changed File: ${{ steps.verify-change-files.outputs.changed_files
-          }}"
+          echo main.js was changed
