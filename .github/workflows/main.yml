@@ -18,6 +18,6 @@ jobs:
         id: changed-files
 
       - name: Run File Change.
-        if: contains(steps.changed-files.outputs.modified_files, main.js)
+        if: contains(steps.changed-files.outputs.modified_files, 'main.js')
         run: |
           echo main.js was changed
