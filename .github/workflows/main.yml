@@ -20,4 +20,4 @@ jobs:
       - name: Run File Change.
         if: contains(steps.changed-files.outputs.modified_files, 'main.js')
         run: |
-          echo main.js was changed
+          echo 'main.js was changed'
