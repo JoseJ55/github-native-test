@@ -1,3 +1,3 @@
-const inital = "changed this jdofnhvb sgbrfs hr e sf s;kdn;fgbvo  fjlvnodenbf uytfu vue b ;";
+const inital = "svondsa feonbovr aonveorufnh e b ;";
 
 console.log(inital);
