@@ -43,6 +43,7 @@ jobs:
           format: space-delimited
 
       - name: Run get files changed.
+        if: contains(steps.files-changed.outputs.all, 'main.js')
         run: |
           echo "All: ${{steps.files-changed.outputs.all}}"
 
