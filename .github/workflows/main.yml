@@ -39,11 +39,11 @@ jobs:
       - name: Get changed.
         uses: jitterbit/get-changed-files@v1
         id: files-changed
+        with: 
+          format: space-delimited
 
       - name: Run get files changed.
         run: |
-          for changed_file in ${{steps.files.output.all}}; do
-            echo "Do something with this ${changed_file}."
-          done
+          echo "All: ${{steps.files-changed.outputs.all}}"
 
       
