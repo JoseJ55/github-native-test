@@ -33,7 +33,7 @@ jobs:
           node-version: 16.x
           cache: 'npm'
 
-      - uses: actions/expo-github-action@v7
+      - uses: expo/expo-github-action@v7
 
       - name: expo who
         run: expo whoami
