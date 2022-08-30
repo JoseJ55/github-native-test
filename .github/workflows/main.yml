@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: check publish
         run: |
-          echo '${{needs.check.outputs.output}}'
+          echo 'publish'
 
   build:
     runs-on: ubuntu-latest
