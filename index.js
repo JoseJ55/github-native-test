@@ -1,3 +1,3 @@
-const i = "fooertubvioebr;fhhfguh gnaerfg eagvetgba dfngfvosngo adfeadrfvbvn voewrb he ";
+const i = "fooerewrb he ";
 
 console.log(i);
