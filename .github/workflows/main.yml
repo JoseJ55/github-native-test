@@ -9,16 +9,15 @@ jobs:
     runs-on: ubuntu-latest
 
     - name: Get changed.
-        uses: jitterbit/get-changed-files@v1
-        id: files-changed
-        with: 
-          format: space-delimited
+      uses: jitterbit/get-changed-files@v1
+      id: files-changed
+      with: 
+        format: space-delimited
 
     if: contains(steps.files-changed.outputs.all, 'main.js') == 'false'
 
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions/setup-node@v1
           
       - name: Check publish
@@ -29,16 +28,15 @@ jobs:
     runs-on: ubuntu-latest
 
     - name: Get changed.
-        uses: jitterbit/get-changed-files@v1
-        id: files-changed
-        with: 
-          format: space-delimited
+      uses: jitterbit/get-changed-files@v1
+      id: files-changed
+      with: 
+        format: space-delimited
 
     if: contains(steps.files-changed.outputs.all, 'main.js') == 'true'
 
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions/setup-node@v1
 
       - name: Check build
