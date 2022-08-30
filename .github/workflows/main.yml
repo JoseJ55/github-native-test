@@ -5,40 +5,26 @@ on:
     branches: [main]
 
 jobs:
-  publish:
+  check:
     runs-on: ubuntu-latest
 
-    - name: Get changed.
-      uses: jitterbit/get-changed-files@v1
-      id: files-changed
-      with: 
-        format: space-delimited
-
-    if: contains(steps.files-changed.outputs.all, 'main.js') == 'false'
-
+    outputs:
+      output: ${{ steps.filter.outputs.package }}
+    
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
-          
-      - name: Check publish
-        run: |
-          echo "Publish run"
+    - uses: actions/checkout@v2
 
-  build:
-    runs-on: ubuntu-latest
+    - uses: dory/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          package:
+            - 'frontend/mobile/package.json'
 
-    - name: Get changed.
-      uses: jitterbit/get-changed-files@v1
-      id: files-changed
-      with: 
-        format: space-delimited
+    - name: change package
+      if: steps.filter.outputs.package == 'true'
+      run: echo "package change"
 
-    if: contains(steps.files-changed.outputs.all, 'main.js') == 'true'
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
-
-      - name: Check build
-        run: |
-          echo "Build run"
+    - name: Didn't change package
+      if: steps.filter.outputs.package != 'true'
+      run: echo "Package didn't change"
