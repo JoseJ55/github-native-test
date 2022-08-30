@@ -6,6 +6,8 @@ on:
 
 jobs:
   publish:
+    runs-on: ubuntu-latest
+
     - name: Get changed.
         uses: jitterbit/get-changed-files@v1
         id: files-changed
@@ -13,8 +15,6 @@ jobs:
           format: space-delimited
 
     if: contains(steps.files-changed.outputs.all, 'main.js') == 'false'
-
-    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -26,6 +26,8 @@ jobs:
           echo "Publish run"
 
   build:
+    runs-on: ubuntu-latest
+
     - name: Get changed.
         uses: jitterbit/get-changed-files@v1
         id: files-changed
@@ -33,8 +35,6 @@ jobs:
           format: space-delimited
 
     if: contains(steps.files-changed.outputs.all, 'main.js') == 'true'
-
-    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
