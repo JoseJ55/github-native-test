@@ -35,3 +35,37 @@ jobs:
         if: contains(steps.changed-files.outputs.modified_files, 'main.js')
         run: |
           echo 'main.js was changed'
+
+                - name: Verify Changed files
+        uses: tj-actions/verify-changed-files@v11.1
+        id: verify-changed-files
+        with:
+          files: |
+            main.js
+
+      - name: Run step only when files change.
+        run: |
+          echo ${{steps.verify-changed-files.outputs.files_changed == 'true'}}
+          echo "Does is have it: ${{contains(steps.verify-changed-files.outputs.changed_files, 'main.js')}}"
+          echo "Changed files:
+          ${{steps.verify-changed-files.outputs.changed_files}}"
+          
+      - name: Changed Files
+        uses: tj-actions/changed-files@v29.0.0
+        id: changed-files
+
+      - name: Run File Change.
+        run: |
+          echo ${{contains(steps.changed-files.outputs.modified_files,
+          'main.js')}}
+
+    - name: Get changed.
+        uses: jitterbit/get-changed-files@v1
+        id: files-changed
+        with: 
+          format: space-delimited
+
+      - name: Run get files changed.
+        if: contains(steps.files-changed.outputs.all, 'main.js')
+        run: |
+          echo "All: ${{steps.files-changed.outputs.all}}"
