@@ -19,7 +19,7 @@ jobs:
       with:
         filters: |
           package:
-            - 'frontend/mobile/package.json'
+            - 'main.js'
 
     - name: change package
       if: steps.filter.outputs.package == 'true'
