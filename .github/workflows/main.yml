@@ -30,7 +30,10 @@ jobs:
 
     steps:
       - name: check publish
-        run: echo "publish"
+        run: |
+          echo '${{needs.check.outputs.output}}'
+          echo '${{needs.path-filter.outputs.output}}'
+          echo '${{needs}}'
 
   build:
     runs-on: ubuntu-latest
