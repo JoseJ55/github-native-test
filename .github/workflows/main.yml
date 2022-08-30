@@ -38,7 +38,8 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: expo version
-        run: expo -v
+        run: |
+          echo "testing if there is an error"
 
   build:
     runs-on: ubuntu-latest
