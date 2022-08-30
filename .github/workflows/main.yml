@@ -26,21 +26,19 @@ jobs:
 
     needs: check
 
-    if: needs.check.outputs.output != true
+    if: needs.check.outputs.output != 'true'
 
     steps:
       - name: check publish
         run: |
           echo '${{needs.check.outputs.output}}'
-          echo '${{needs.path-filter.outputs.output}}'
-          echo '${{needs}}'
 
   build:
     runs-on: ubuntu-latest
 
     needs: check
 
-    if: needs.check.outputs.output == true
+    if: needs.check.outputs.output == 'true'
 
     steps:
       - name: check build
