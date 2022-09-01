@@ -45,10 +45,9 @@ jobs:
         working-directory: ./actions
         run: npm install
 
-      - name: test output
+      - name: Publish App
         working-directory: ./actions
-        run: |
-          ls
+        run: expo publish --release-channel preview
 
   build:
     runs-on: ubuntu-latest
