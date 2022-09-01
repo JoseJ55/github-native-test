@@ -42,8 +42,9 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: test output
+        working-directory: ./actions
         run: |
-          echo "working"
+          echo expo 
 
   build:
     runs-on: ubuntu-latest
