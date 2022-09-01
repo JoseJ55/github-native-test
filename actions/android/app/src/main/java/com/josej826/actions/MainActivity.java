@@ -1,4 +1,4 @@
-package com.actions;
+package com.josej826.actions;
 
 import android.os.Build;
 import android.os.Bundle;

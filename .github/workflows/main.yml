@@ -20,7 +20,7 @@ jobs:
       with:
         filters: |
           package:
-            - 'main.js'
+            - 'actions/package.json'
 
   publish:
     runs-on: ubuntu-latest
