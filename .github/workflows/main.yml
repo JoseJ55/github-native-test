@@ -33,7 +33,6 @@ jobs:
         with:
           node-version: 16.x
           cache: 'npm'
-          cache-dependency-path: subdir/package-lock.json
 
       - uses: expo/expo-github-action@v7
         with:
@@ -41,14 +40,9 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: checking expo
-        working-directory: ./actions
-        run: expo
-
-      - name: expo version
-        working-directory: ./actions
+      - name: test output
         run: |
-          echo "testing if there is an error"
+          echo "working"
 
   build:
     runs-on: ubuntu-latest
