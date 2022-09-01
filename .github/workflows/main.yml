@@ -44,7 +44,7 @@ jobs:
       - name: test output
         working-directory: ./actions
         run: |
-          echo expo 
+          expo 
 
   build:
     runs-on: ubuntu-latest
