@@ -41,6 +41,10 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
+      - name: Install Dependencies
+        working-directory: ./actions
+        run: npm install
+
       - name: test output
         working-directory: ./actions
         run: |
