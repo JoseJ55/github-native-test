@@ -50,7 +50,7 @@ jobs:
         run: expo publish --release-channel preview
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: check
 
     if: needs.check.outputs.output == 'true'
@@ -71,6 +71,12 @@ jobs:
       - name: Install Dependencies
         working-directory: ./actions
         run: npm install
+
+      - name: Install Pod
+        working-directory: ./actions
+        run: |
+        cd ios
+        pod install
 
       - name: Build App
         working-directory: ./actions
