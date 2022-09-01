@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 16.x
           cache: 'npm'
-          cache-dependency-path: action/package-lock.json
+          cache-dependency-path: actions/package-lock.json
 
       - uses: expo/expo-github-action@v7
         with:
