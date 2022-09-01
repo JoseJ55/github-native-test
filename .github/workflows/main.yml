@@ -80,4 +80,4 @@ jobs:
 
       - name: Build App
         working-directory: ./actions
-        run: eas build --profile preview --platform all
+        run: eas build --profile preview --platform all --non-interactive
