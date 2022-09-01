@@ -56,7 +56,22 @@ jobs:
     if: needs.check.outputs.output == 'true'
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'npm'
+          cache-dependency-path: actions/package-lock.json
+        
+      - uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: check build
-        run: echo "build"
+      - name: Install Dependencies
+        working-directory: ./actions
+        run: npm install
+
+      - name: Build App
+        working-directory: ./actions
+        run: eas build --profile preview --platform android
