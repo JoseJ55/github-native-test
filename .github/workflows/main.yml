@@ -75,8 +75,8 @@ jobs:
       - name: Install Pod
         working-directory: ./actions
         run: |
-        cd ios
-        pod install
+          cd ios
+          pod install
 
       - name: Build App
         working-directory: ./actions
