@@ -5,7 +5,7 @@
             {
                 "envName": "APP_ENV",
                 "moduleName": "@env",
-                "path": "./actions/.env"
+                "path": "./env/.env"
             }
         ]
     ]
