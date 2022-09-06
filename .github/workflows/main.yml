@@ -47,7 +47,7 @@ jobs:
           mkdir env
           cd env
           touch .env
-          echo API_TEST=${{ secrets.TEST_VARIABLE }} >> .env
+          echo API_TEST=True >> .env
           echo API_MORE="https://web.com" >> .env
           cat .env
 

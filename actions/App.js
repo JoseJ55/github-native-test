@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import store from "./redux/store"
+import { API_TEST, API_MORE } from "@env";
 
 import Main from './components/Main';
 
@@ -11,7 +12,8 @@ export default function App() {
     <View style={styles.container}>
       <Provider store={store}>
         <Main/>
-        <Text>World</Text>
+        <Text>{API_MORE}</Text>
+        <Text>{API_TEST}</Text>
       </Provider>
     </View>
   );
