@@ -44,7 +44,6 @@ jobs:
       - name: Make env file
         working-directory: ./actions
         run: |
-          mkdir env
           cd env
           touch .env
           echo API_TEST=True >> .env
