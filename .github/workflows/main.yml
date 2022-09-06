@@ -41,6 +41,16 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
+      - name: Make env file
+        working-directory: ./actions
+        run: |
+          mkdir env
+          cd env
+          touch .env
+          echo API_TEST=${{ secrets.TEST_VARIABLE }} >> .env
+          echo API_MORE="https://web.com" >> .env
+          cat .env
+
       - name: Install Dependencies
         working-directory: ./actions
         run: npm install
