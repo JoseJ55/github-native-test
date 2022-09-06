@@ -11,7 +11,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Provider store={store}>
-        <Main/>
+        {/* <Main/> */}
         <Text>{API_MORE}</Text>
         <Text>{API_TEST}</Text>
       </Provider>
