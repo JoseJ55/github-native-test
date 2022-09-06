@@ -5,6 +5,10 @@ on:
   push:
     branches: [main]
 
+env:
+  TEST_STRING: secrets.TEST_STRING
+  TEST_URL: secrets.TEST_URL
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -46,8 +50,8 @@ jobs:
         run: |
           cd env
           touch .env
-          echo API_TEST=True >> .env
-          echo API_MORE="https://web.com" >> .env
+          echo API_TEST="$TEST_STRING" >> .env
+          echo API_MORE="$TEST_URL" >> .env
           cat .env
 
       - name: Install Dependencies
