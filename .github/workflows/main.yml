@@ -9,10 +9,6 @@ jobs:
   check:
     runs-on: ubuntu-latest
 
-    env:
-      TEST_STRING: ${{ secrets.TEST_STRING }} 
-      TEST_URL: ${{secrets.TEST_URL}}
-
     outputs:
       output: ${{ steps.filter.outputs.package }}
     
@@ -29,6 +25,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     needs: check
+
+    env:
+      TEST_STRING: ${{ secrets.TEST_STRING }} 
+      TEST_URL: ${{ secrets.TEST_URL }}
 
     if: needs.check.outputs.output != 'true'
     steps:
